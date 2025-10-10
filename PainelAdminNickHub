@@ -124,7 +124,7 @@ Icon.Parent = Button
 
 -- Copiar Discord
 Button.MouseButton1Click:Connect(function()
-    setclipboard("https://discord.gg/4gQAVKcRx")
+    setclipboard("https://discord.gg/VrbcRbd8q")
     Button.Text = "✅ Copiado!"
     task.wait(2)
     Button.Text = "Copiar Discord"
