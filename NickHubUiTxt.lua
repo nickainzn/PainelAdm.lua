@@ -12,15 +12,16 @@ local redzlib = {
 	Themes = {
 		Darker = {
 			["Color Hub 1"] = ColorSequence.new({
-    ColorSequenceKeypoint.new(0.00, Color3.fromRGB(10, 15, 31)),   -- Azul bem escuro no início
-ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 100, 150)),  -- Azul puxando pro ciano (transição)
-ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 229, 255))   -- Ciano brilhante no fi
+    ColorSequence.new({
+	ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),        -- Preto no início
+	ColorSequenceKeypoint.new(0.50, Color3.fromRGB(50, 50, 50)),     -- Cinza escuro na transição
+	ColorSequenceKeypoint.new(1.00, Color3.fromRGB(200, 200, 200))   -- Cinza claro/branco no final
 }),
-["Color Hub 2"] = Color3.fromRGB(10, 15, 31), -- Fundo principal (dark blue)
-["Color Stroke"] = Color3.fromRGB(0, 180, 200), -- Contorno ciano forte
-["Color Theme"] = Color3.fromRGB(0, 229, 255), -- Destaque/tema ciano
-["Color Text"] = Color3.fromRGB(255, 255, 255), -- Texto branco
-["Color Dark Text"] = Color3.fromRGB(176, 190, 197), -- Texto secundário (cinza claro)
+["Color Hub 2"] = Color3.fromRGB(15, 15, 15),   -- Fundo principal (preto suave)
+["Color Stroke"] = Color3.fromRGB(100, 100, 100), -- Contorno cinza médio
+["Color Theme"] = Color3.fromRGB(230, 230, 230),  -- Destaque/tema branco acinzentado
+["Color Text"] = Color3.fromRGB(255, 255, 255),   -- Texto branco puro
+["Color Dark Text"] = Color3.fromRGB(170, 170, 170) -- Texto secundário (cinza claro)
         }
 	},
 	Info = {
