@@ -26,7 +26,7 @@ local Tab10 = Window:MakeTab({"Lag Server", "bomb"})
 local Tab11 = Window:MakeTab({"Scripts", "scroll"})
 local Tab12 = Window:MakeTab({"Teleportes", "map-pin"})
 local Tab13 = Window:MakeTab({"Admin","hammer"})
-
+local Tab14 = Window:MakeTab({"Visual Op","hat-glasses"})
 
 
 
@@ -1509,7 +1509,7 @@ Tab5:AddButton({
         end
 
         if vehicleSeat.Occupant then
-            TeleportCarro:MostrarNotificacao("O teleporte do carro não foi possível, há alguém sentado no assento do motorista!")
+            TeleportCarro:MostrarNotificacao("O teleporte do não foi possível, há alguém sentado no assento do motorista!")
             return
         end
 
