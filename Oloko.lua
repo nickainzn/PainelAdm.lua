@@ -2,6 +2,7 @@
 loadstring(game:HttpGet("https://pastebin.com/raw/4nHqUmpH"))()
 
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/nickainzn/PainelAdm.lua/main/Ga.lua"))()
+
 local Window = redzlib:MakeWindow({
   Title = "Nick Hub | Brookhaven 1.3.0🏡",
   SubTitle = "by nick",
