@@ -39,9 +39,6 @@ local Section = Tab2:AddSection({"Nenhum evento..."})
 
 local Tab3 = Window:MakeTab({"Main", "Home"})
 
-Tab3:AddButton({"Painel Adm", function(Value)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/nickainzn/Auto-coin/main/Lua%20lua.lua"))()
-
 local Section = Tab3:AddSection({"Chat Spy"})
 
 Tab3:AddButton({"Chat Spy", function(Value)
