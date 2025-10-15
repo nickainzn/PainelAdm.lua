@@ -1,4 +1,9 @@
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/nickainzn/PainelAdm.lua/main/Ga.lua"))()
+--// Carregar Sistema de Notificação
+loadstring(game:HttpGet("https://pastebin.com/raw/EVuVwfPg"))()
+
+--// Carregar Tela de carregamento 
+loadstring(game:HttpGet("https://pastebin.com/raw/4nHqUmpH"))()
 
 local Window = redzlib:MakeWindow({
   Title = "Nick Hub | Brookhaven 1.3.0🏡",
