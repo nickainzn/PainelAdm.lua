@@ -13,14 +13,13 @@ local redzlib = {
 		Darker = {
 			["Color Hub 1"] = ColorSequence.new({
 ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),    -- Preto no início
-ColorSequenceKeypoint.new(0.50, Color3.fromRGB(100, 100, 100)), -- Meio do gradiente (cinza leve, só pra suavizar)
-ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))  -- Branco no final
+ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255)) -- Branco no final
 }),
 ["Color Hub 2"] = Color3.fromRGB(0, 0, 0),        -- fundo preto
 ["Color Stroke"] = Color3.fromRGB(255, 255, 255), -- contorno branco
 ["Color Theme"] = Color3.fromRGB(255, 255, 255),  -- tema branco
 ["Color Text"] = Color3.fromRGB(255, 255, 255),   -- texto branco
-["Color Dark Text"] = Color3.fromRGB(200, 200, 200) -- cinza bem claro para contraste leve
+["Color Dark Text"] = Color3.fromRGB(255, 255, 255) -- texto branco também
 		}
 	},
 	Info = {
