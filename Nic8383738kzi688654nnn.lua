@@ -2,7 +2,7 @@
 loadstring(game:HttpGet("https://pastebin.com/raw/4nHqUmpH"))()
 
 -- carregar PainelAdm
-loadstring(game:HttpGet("https://pastebin.com/raw/vj2cDe7a"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/nickainzn/Travesseiro/main/Travesseiro.lua"))()
 
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/nickainzn/PainelAdm.lua/main/Ga.lua"))()
 local Window = redzlib:MakeWindow({
