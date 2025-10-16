@@ -1,3 +1,4 @@
+
 --// Carregar Tela de carregamento 
 loadstring(game:HttpGet("https://pastebin.com/raw/4nHqUmpH"))()
 
@@ -4587,4 +4588,89 @@ Tab9:AddButton({"Parar Tudo", function()
     showNotification("Tudo Parado", "Todas as funções foram desativadas.", nil)
 end})
 
+-- ---------------------------------------------------------
+-- Free GamePass (GUI + checagem)
+-- ---------------------------------------------------------
+Tab11:AddButton({"Free GamePass", function()
+    local MarketplaceService = game:GetService("MarketplaceService")
+    local RunService = game:GetService("RunService")
 
+    -- ID da gamepass Premium (ajuste se necessário)
+    local PREMIUM_GAMEPASS_ID = 8021652
+    local player = Players.LocalPlayer
+
+    -- Cria a ScreenGui
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Parent = player.PlayerGui
+    screenGui.Name = "PositionAndGamepassGui"
+    screenGui.ResetOnSpawn = false
+
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(0, 250, 0, 100)
+    frame.Position = UDim2.new(0, 10, 0, 10)
+    frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    frame.BackgroundTransparency = 0.5
+    frame.BorderSizePixel = 0
+    frame.Parent = screenGui
+
+    local positionLabel = Instance.new("TextLabel")
+    positionLabel.Size = UDim2.new(1, 0, 0.5, 0)
+    positionLabel.BackgroundTransparency = 1
+    positionLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    positionLabel.TextScaled = true
+    positionLabel.Text = "Posição: (0, 0, 0)"
+    positionLabel.Parent = frame
+
+    local gamepassLabel = Instance.new("TextLabel")
+    gamepassLabel.Size = UDim2.new(1, 0, 0.5, 0)
+    gamepassLabel.Position = UDim2.new(0, 0, 0.5, 0)
+    gamepassLabel.BackgroundTransparency = 1
+    gamepassLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
+    gamepassLabel.TextScaled = true
+    gamepassLabel.Text = "Verificando gamepass Premium..."
+    gamepassLabel.Parent = frame
+
+    local function teleportToPosition()
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            local humanoidRootPart = player.Character.HumanoidRootPart
+            local targetPosition = Vector3.new(8.93, -133.69, 11.41)
+            humanoidRootPart.CFrame = CFrame.new(targetPosition)
+            print("Teleportado para: " .. tostring(targetPosition))
+        else
+            print("Personagem não carregado. Tente novamente.")
+        end
+    end
+
+    local function updateGui()
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            local position = player.Character.HumanoidRootPart.Position
+            local formattedPos = string.format("(%.2f, %.2f, %.2f)", position.X, position.Y, position.Z)
+            positionLabel.Text = "Posição: " .. formattedPos
+        else
+            positionLabel.Text = "Posição: Aguardando personagem..."
+        end
+
+        local success, hasGamepass = pcall(function()
+            return MarketplaceService:UserOwnsGamePassAsync(player.UserId, PREMIUM_GAMEPASS_ID)
+        end)
+        if success and hasGamepass then
+            gamepassLabel.Text = "Premium: Ativa!"
+            gamepassLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+        else
+            gamepassLabel.Text = "Premium: Não ativa"
+            gamepassLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+        end
+    end
+
+    player.CharacterAdded:Connect(function()
+        task.wait(1)
+        teleportToPosition()
+    end)
+
+    if player.Character then
+        teleportToPosition()
+    end
+
+    RunService.RenderStepped:Connect(updateGui)
+    print("Free GamePass script ativado")
+end})
