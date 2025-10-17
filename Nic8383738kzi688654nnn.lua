@@ -4614,6 +4614,12 @@ end})
 
 ------------------------------------------------------------
 -- Tornado 
+Tab9:AddButton({
+    Name = "Ativar Tornado",
+    Callback = function()
+        TornadoPirateFree()
+        print("Tornado PirateFree ativado!")
+        end
 
 local function TornadoPirateFree()
     -- Aviso no chat
