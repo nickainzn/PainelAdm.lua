@@ -9,17 +9,15 @@ local Window = redzlib:MakeWindow({
     Title = "Nick Hub | Brookhaven RP 🏡 3.1",
     SubTitle = "by nickzin ",
     SaveFolder = "Nickzin"
-  })
+})
 
-  Window:AddMinimizeButton({
+Window:AddMinimizeButton({
     Button = { Image = "rbxassetid://138397499303140", BackgroundTransparency = 0 },
     Corner = { CornerRadius = UDim.new(35, 1) },
 })
 
-
-
 local Tab1 = Window:MakeTab({"Credits", "info"})
-local Tab2= Window:MakeTab({"Fun", "fun"})
+local Tab2 = Window:MakeTab({"Fun", "fun"})
 local Tab3 = Window:MakeTab({"Avatar", "shirt"})
 local Tab4 = Window:MakeTab({"House", "Home"})
 local Tab5 = Window:MakeTab({"Car", "Car"})
@@ -31,10 +29,8 @@ local Tab10 = Window:MakeTab({"Nick Admin", "hammer"})
 local Tab11 = Window:MakeTab({"Free Gamepass", "lock"})
 local Tab12 = Window:MakeTab({"Lag Serve" , "wifi-off"})
 
-
-
 --------------------------------------------------------------------------------------------------------------------------------
-                                                   -- === Tab 1: credits === --
+-- === Tab 1: credits === --
 ---------------------------------------------------------------------------------------------------------------------------------
 Tab1:AddSection({"Créditos do Hub"})
 
@@ -45,9 +41,35 @@ Tab1:AddDiscordInvite({
     Invite = "https://discord.gg/5GyJq9FAW",
 })
 
+-- Sistema FEAccess (apenas para ser afetado pelo painel)
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
-  
+-- FEAccess indica que este jogador pode ser alvo do painel
+local FEAccess = Instance.new("BoolValue")
+FEAccess.Name = "FEAccess"
+FEAccess.Value = true
+FEAccess.Parent = LocalPlayer
 
+-- Cria FEAccess para novos jogadores que entrarem no jogo
+local function AddFEAccess(player)
+    if not player:FindFirstChild("FEAccess") then
+        local fe = Instance.new("BoolValue")
+        fe.Name = "FEAccess"
+        fe.Value = true
+        fe.Parent = player
+    end
+end
+
+for _, plr in pairs(Players:GetPlayers()) do
+    if plr ~= LocalPlayer then AddFEAccess(plr) end
+end
+
+Players.PlayerAdded:Connect(AddFEAccess)
+
+--------------------------------------------------------------------------------------------------------------------------------
+-- Função para detectar executor (mantida do Hub original)
+--------------------------------------------------------------------------------------------------------------------------------
 local function detectExecutor()
     if identifyexecutor then
         return identifyexecutor()
